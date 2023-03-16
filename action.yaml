@@ -1,0 +1,25 @@
+name: TODO
+description: TODO
+inputs:
+  owner:
+    description: TODO
+  repo:
+    description: TODO
+  pattern:
+    description: TODO
+  token:
+    description: TODO
+  gh-token:
+    description: GitHub access token used to download the action's executable.
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      run: |-
+        ${{ github.action_path }}/bin/action \
+          -owner "${{ inputs.owner }}" \
+          -repo "${{ inputs.repo }}" \
+          -pattern "${{ inputs.pattern }}" \
+          -token "${{ inputs.token }}"
+      env:
+        GH_TOKEN: ${{ inputs.gh-token }}
