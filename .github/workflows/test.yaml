@@ -1,0 +1,15 @@
+name: Test
+on:
+  release: {}
+  # Allow manual runs.
+  workflow_dispatch: {}
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: eigenbot-app/download-release@main
+        with:
+          owner: eigenbot-app
+          repo: download-release
+          pattern: download-release
+          token: ${{ github.token }}
