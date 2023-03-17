@@ -9,7 +9,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: eigenbot-app/download-release@main
+      - uses: eigenbot-app/download-go-action@main
         with:
           owner: eigenbot-app
           repo: generate-go-action

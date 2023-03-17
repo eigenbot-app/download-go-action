@@ -8,11 +8,11 @@ if ! command -v gh &>/dev/null; then
   exit 1
 fi
 
-echo "Downloading Action \`download-release\`..."
+echo "Downloading Action \`download-go-action\`..."
 gh release download "" \
-  --repo "eigenbot-app/download-release" \
-  --pattern "download-release" \
+  --repo "eigenbot-app/download-go-action" \
+  --pattern "download-go-action" \
   --dir .
 
-chmod +x "./download-release"
-"./download-release" "$@"
+chmod +x "./download-go-action"
+"./download-go-action" "$@"

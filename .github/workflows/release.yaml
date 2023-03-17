@@ -35,7 +35,7 @@ jobs:
         run: |-
           cd . && \
           mkdir -p bin && \
-          go build -ldflags="-w -s" -o bin/download-release ./
+          go build -ldflags="-w -s" -o bin/download-go-action ./
         env:
           GOPRIVATE: github.com/eigenbot-app
           CGO_ENABLED: 0
@@ -43,7 +43,7 @@ jobs:
           GOARCH: amd64
       - id: tag
         name: Determine Release Tag
-        run: echo "name=download-release-$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+        run: echo "name=download-go-action-$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
       - name: Push Release Tag
         run: |-
           git config --global user.password ${{ steps.token.outputs.token }}
@@ -57,7 +57,7 @@ jobs:
           gh release create \
             ${{ steps.tag.outputs.name }} \
             --title "${{ steps.tag.outputs.name }}" \
-            --notes "Binary release of \`download-release\` at revision \`${{ github.sha }}\`." \
+            --notes "Binary release of \`download-go-action\` at revision \`${{ github.sha }}\`." \
             --verify-tag
         env:
           GH_TOKEN: ${{ steps.token.outputs.token }}
@@ -65,7 +65,7 @@ jobs:
         run: |
           gh release upload \
             ${{ steps.tag.outputs.name }} \
-            bin/download-release \
+            bin/download-go-action \
             --clobber
         env:
           GH_TOKEN: ${{ steps.token.outputs.token }}

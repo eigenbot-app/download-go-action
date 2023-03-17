@@ -1,4 +1,4 @@
-module github.com/eigenbot-app/download-release
+module github.com/eigenbot-app/download-go-action
 
 go 1.20
 
