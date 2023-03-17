@@ -14,4 +14,3 @@ jobs:
           owner: eigenbot-app
           repo: generate-go-action
           name: generate-go-action
-          token: ${{ github.token }}
