@@ -1,6 +1,8 @@
 name: Test
 on:
-  release: {}
+  release:
+    types:
+      - published
   # Allow manual runs.
   workflow_dispatch: {}
 jobs:
