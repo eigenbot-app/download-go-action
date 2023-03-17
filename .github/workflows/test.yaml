@@ -12,6 +12,6 @@ jobs:
       - uses: eigenbot-app/download-release@main
         with:
           owner: eigenbot-app
-          repo: download-release
-          name: download-release
+          repo: generate-go-action
+          name: generate-go-action
           token: ${{ github.token }}
