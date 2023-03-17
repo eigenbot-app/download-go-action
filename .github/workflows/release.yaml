@@ -7,6 +7,7 @@ on:
       - master # Support legacy default branches.
     paths:
       - '**.go'
+      - '**.mod'
       - '**.sum'
       - .github/workflows/release.yaml
   # Allow manual releases off any branch.
@@ -31,7 +32,10 @@ jobs:
         with:
           go-version: stable
       - name: Compile Package
-        run: mkdir -p bin && go build -ldflags="-w -s" -o bin/download-release ./
+        run: |-
+          cd . && \
+          mkdir -p bin && \
+          go build -ldflags="-w -s" -o bin/download-release ./
         env:
           GOPRIVATE: github.com/eigenbot-app
           CGO_ENABLED: 0
@@ -61,7 +65,7 @@ jobs:
         run: |
           gh release upload \
             ${{ steps.tag.outputs.name }} \
-            ./bin/download-release\
+            bin/download-release \
             --clobber
         env:
           GH_TOKEN: ${{ steps.token.outputs.token }}

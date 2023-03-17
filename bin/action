@@ -8,7 +8,7 @@ if ! command -v gh &>/dev/null; then
   exit 1
 fi
 
-echo "Downloading Action \`eigenbot-app/download-release\`..."
+echo "Downloading Action \`download-release\`..."
 gh release download "" \
   --repo "eigenbot-app/download-release" \
   --pattern "download-release" \
