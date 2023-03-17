@@ -5,7 +5,7 @@ inputs:
     description: TODO
   repo:
     description: TODO
-  pattern:
+  name:
     description: TODO
   token:
     description: TODO
@@ -17,7 +17,7 @@ runs:
         ${{ github.action_path }}/bin/action \
           -owner "${{ inputs.owner }}" \
           -repo "${{ inputs.repo }}" \
-          -pattern "${{ inputs.pattern }}" \
+          -name "${{ inputs.name }}" \
           -token "${{ inputs.token }}"
       env:
         GH_TOKEN: ${{ github.token }}
