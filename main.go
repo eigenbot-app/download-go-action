@@ -21,6 +21,10 @@ func main() {
 	flag.StringVar(&token, "token", "", "")
 	flag.Parse()
 
+	if defaultToken := os.Getenv("GH_TOKEN"); token == "" && defaultToken != "" {
+		token = defaultToken
+	}
+
 	ctx := context.Background()
 	gh := github.NewTokenClient(ctx, token)
 	opts := &github.ListOptions{PerPage: 100}

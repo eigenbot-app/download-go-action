@@ -7,6 +7,8 @@ inputs:
     description: TODO
   name:
     description: TODO
+  token:
+    description: TODO
 runs:
   using: composite
   steps:
@@ -16,6 +18,6 @@ runs:
           -owner "${{ inputs.owner }}" \
           -repo "${{ inputs.repo }}" \
           -name "${{ inputs.name }}" \
-          -token "${{ github.token }}"
+          -token "${{ inputs.token }}"
       env:
         GH_TOKEN: ${{ github.token }}
